@@ -1,0 +1,236 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: oklch(97% 0.012 75);
+  --ink: oklch(14% 0.01 60);
+  --ink-mid: oklch(48% 0.01 60);
+  --ink-faint: oklch(75% 0.008 60);
+  --accent: oklch(62% 0.16 55);
+  --border: oklch(88% 0.01 70);
+  --radius: 6px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  padding: 0 24px 80px;
+}
+
+/* https://github.com/tholman/github-corners */
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+/* ── Header ── */
+header {
+  width: 100%;
+  max-width: 640px;
+  padding: 48px 0 72px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.logo-mark {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.logo-mark span {
+  color: var(--accent);
+}
+
+.logo-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+/* ── Main card ── */
+main {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: clamp(32px, 6vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 48px;
+}
+
+h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* ── Input row ── */
+.input-row {
+  display: flex;
+  gap: 0;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: white;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.input-row:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px oklch(62% 0.16 55 / 0.12);
+}
+
+#data-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ink);
+  padding: 18px 20px;
+  min-width: 0;
+}
+
+#data-input::placeholder {
+  color: var(--ink-faint);
+}
+
+#generate-btn {
+  flex-shrink: 0;
+  border: none;
+  border-left: 1.5px solid var(--border);
+  background: var(--ink);
+  color: var(--bg);
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0 28px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
+}
+
+#generate-btn:hover {
+  background: var(--accent);
+  border-left-color: var(--accent);
+}
+
+#generate-btn:active {
+  opacity: 0.85;
+}
+
+/* ── Result area ── */
+#result {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  pointer-events: none;
+}
+
+#result.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#qr-wrapper {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  background: white;
+  line-height: 0; /* kill gap under img */
+}
+
+#qr-wrapper img {
+  display: block;
+  image-rendering: pixelated;
+}
+
+.save-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--ink-mid);
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.save-hint::before,
+.save-hint::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 40px;
+  background: var(--border);
+}

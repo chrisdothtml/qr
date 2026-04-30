@@ -1,0 +1,13 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.addMissingImports.ts": "always",
+    "source.fixAll.prettier": "always"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "js/ts.preferences.organizeImports": {
+    "caseSensitivity": "caseInsensitive",
+    "typeOrder": "last"
+  }
+}

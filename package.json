@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "scripts": {
+    "lint": "prettier --check .",
+    "lint-fix": "prettier --write .",
+    "start": "serve"
+  },
+  "volta": {
+    "node": "25.2.1",
+    "yarn": "4.13.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "serve": "^14.2.6"
+  }
+}
