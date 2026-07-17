@@ -32,7 +32,6 @@ function main() {
     if (urlInput) {
       input.value = decodeURIComponent(urlInput);
       generate().catch(() => {});
-      return;
     }
 
     input.focus();
