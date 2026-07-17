@@ -8,10 +8,6 @@ function main() {
   const result = document.getElementById('result') as HTMLDivElement;
   const output = document.getElementById('qr-output') as HTMLDivElement;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    input.focus();
-  });
-
   function generate() {
     const value = input.value.trim();
     if (!value) {
@@ -21,6 +17,7 @@ function main() {
 
     try {
       output.replaceChildren(createQRImageTag(value));
+      window.location.hash = encodeURIComponent(value);
     } catch (_) {
       const errorMsg = 'Could not encode — try shorter input.';
       output.innerHTML = `<p style="font-family:'DM Mono',monospace;font-size:12px;color:var(--ink-mid);padding:8px 0">${errorMsg}</p>`;
@@ -29,7 +26,18 @@ function main() {
     }
   }
 
-  btn.addEventListener('click', generate);
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlInput = window.location.hash.slice(1);
+    if (urlInput) {
+      input.value = decodeURIComponent(urlInput);
+      generate();
+      return;
+    }
+
+    input.focus();
+  });
+
+  btn.addEventListener('click', () => generate());
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') generate();
   });
