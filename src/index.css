@@ -228,6 +228,8 @@ h1 em {
 #qr-wrapper img {
   display: block;
   image-rendering: pixelated;
+  width: 300px;
+  height: 300px;
 }
 
 .save-hint {
