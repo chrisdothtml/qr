@@ -3,6 +3,7 @@
   "scripts": {
     "lint": "prettier --check .",
     "lint-fix": "prettier --write .",
+    "typecheck": "tsc -b --pretty",
     "start": "serve"
   },
   "volta": {
@@ -11,6 +12,8 @@
   },
   "devDependencies": {
     "prettier": "^3.6.2",
-    "serve": "^14.2.6"
+    "qrcode-generator": "2.0.4",
+    "serve": "^14.2.6",
+    "typescript": "^5.9.2"
   }
 }
