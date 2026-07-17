@@ -33,6 +33,19 @@ body {
 }
 
 /* https://github.com/tholman/github-corners */
+.github-corner svg {
+  fill: #24292e;
+  color: #f7f7f7;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+.github-corner .octo-arm {
+  transform-origin: 130px 106px;
+}
+
 @keyframes octocat-wave {
   0%,
   100% {
@@ -236,4 +249,52 @@ h1 em {
   height: 1px;
   width: 40px;
   background: var(--border);
+}
+
+/* ── About / FAQ ── */
+.about {
+  margin-top: 120px;
+  margin-bottom: 48px;
+  padding-top: 48px;
+  border-top: 1.5px solid var(--border);
+}
+
+.about h2 {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+}
+
+.about h2:not(:first-child) {
+  margin-top: 48px;
+}
+
+.about h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.about h3:not(:first-of-type) {
+  margin-top: 24px;
+}
+
+.about p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ink-mid);
+}
+
+.about a {
+  color: var(--accent);
+}
+
+.about .faq-block {
+  margin-top: 15px;
 }

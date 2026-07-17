@@ -6,8 +6,11 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  // make sure TS auto-imports have the file extension (required for node)
+  "js/ts.preferences.importModuleSpecifierEnding": "js",
   "js/ts.preferences.organizeImports": {
     "caseSensitivity": "caseInsensitive",
     "typeOrder": "last"
-  }
+  },
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }

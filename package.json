@@ -4,15 +4,24 @@
     "lint": "prettier --check .",
     "lint-fix": "prettier --write .",
     "typecheck": "tsc -b --pretty",
-    "start": "serve"
+    "tsn": "node --experimental-transform-types --no-warnings",
+    "build": "yarn tsn ./src/.scripts/build.ts",
+    "start": "serve dist"
   },
   "volta": {
     "node": "25.2.1",
     "yarn": "4.13.0"
   },
   "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "esbuild": "^0.28.1",
     "prettier": "^3.6.2",
     "qrcode-generator": "2.0.4",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "schema-dts": "^2.0.0",
     "serve": "^14.2.6",
     "typescript": "^5.9.2"
   }

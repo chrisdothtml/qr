@@ -1,0 +1,9 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["src/.scripts/*.ts", "src/index.ts", "src/index.html.tsx"],
+  "project": ["src/**/*.{ts,tsx}"],
+  "ignore": ["public", "src/**/*.d.ts"],
+  "yarn": true,
+  "ignoreExportsUsedInFile": true,
+  "tags": ["-@knipignore"]
+}

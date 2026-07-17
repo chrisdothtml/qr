@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
     "noEmit": true,
     "strict": true,
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "lib": ["esnext", "dom", "dom.iterable"]
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "types": ["node"]
   },
-  "include": ["assets"]
+  "include": ["src", "src/.scripts/build.ts"]
 }
