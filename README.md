@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="300" src=".github/assets/qr.png" alt="QR Code linking to this repo">
+  <a href="https://chrisdothtml.github.io/qr/#https%3A%2F%2Fchrisdothtml.github.io%2Fqr%2F"><img width="300" src=".github/assets/qr.png" alt="QR Code linking to this repo"></a>
 </div>
 
 # qr
