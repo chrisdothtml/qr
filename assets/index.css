@@ -69,6 +69,7 @@ header {
   letter-spacing: -0.03em;
   color: var(--ink);
   line-height: 1;
+  user-select: none;
 }
 
 .logo-mark span {
@@ -169,6 +170,7 @@ h1 em {
     background 0.15s ease,
     color 0.15s ease;
   white-space: nowrap;
+  user-select: none;
 }
 
 #generate-btn:hover {
@@ -193,6 +195,7 @@ h1 em {
     opacity 0.35s ease,
     transform 0.35s ease;
   pointer-events: none;
+  user-select: none;
 }
 
 #result.visible {
