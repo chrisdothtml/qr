@@ -1,5 +1,6 @@
 import qrCode from 'qrcode-generator';
 import './index.css';
+import { canvasToPng } from './png.ts';
 
 main();
 function main() {
@@ -8,7 +9,7 @@ function main() {
   const result = document.getElementById('result') as HTMLDivElement;
   const output = document.getElementById('qr-output') as HTMLDivElement;
 
-  function generate() {
+  async function generate() {
     const value = input.value.trim();
     if (!value) {
       input.focus();
@@ -16,7 +17,7 @@ function main() {
     }
 
     try {
-      output.replaceChildren(createQRImageTag(value));
+      output.replaceChildren(await createQRImage(value));
       window.location.hash = encodeURIComponent(value);
     } catch (_) {
       const errorMsg = 'Could not encode — try shorter input.';
@@ -30,20 +31,23 @@ function main() {
     const urlInput = window.location.hash.slice(1);
     if (urlInput) {
       input.value = decodeURIComponent(urlInput);
-      generate();
+      generate().catch(() => {});
       return;
     }
 
     input.focus();
   });
 
-  btn.addEventListener('click', () => generate());
+  btn.addEventListener('click', () => generate().catch(() => {}));
   input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') generate();
+    if (e.key === 'Enter') generate().catch(() => {});
   });
 }
 
-function createQRImageTag(text: string): HTMLImageElement {
+/**
+ * Renders `text` as a QR code and returns it as an `<img>` element
+ */
+async function createQRImage(text: string): Promise<HTMLImageElement> {
   const qr = qrCode(0, 'L');
   qr.addData(text);
   qr.make();
@@ -66,7 +70,7 @@ function createQRImageTag(text: string): HTMLImageElement {
   const img = new Image();
   img.width = img.height = size;
   img.alt = 'QR code';
-  img.src = canvas.toDataURL('image/png');
+  img.src = await canvasToPng(canvas);
 
   return img;
 }
